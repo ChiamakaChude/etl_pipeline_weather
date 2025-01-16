@@ -34,10 +34,10 @@ from weather_etl.scripts.load import load_weather
 
 logging.basicConfig(
     level=logging.DEBUG,  # Log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
-    format="%(asctime)s - %(levelname)s - %(filename)s - %(message)s",  # Include filename in the logs
+    format="%(asctime)s - %(levelname)s - %(filename)s - %(message)s",  #Include filename in the logs
     handlers=[
         logging.FileHandler(log_file),  # Write logs to the log file
-        logging.StreamHandler()  # Write logs to the console (Airflow captures this)
+        logging.StreamHandler()  # Write logs to the console
     ]
 )
 
@@ -51,12 +51,12 @@ default_args = {
 
 # Define the DAG
 with DAG(
-    dag_id="weather_etl",           # Unique name for your DAG
+    dag_id="weather_etl",         
     default_args=default_args,
     description="ETL pipeline for weather data",
     schedule_interval="*/5 * * * *",  # Run every 5 minutes
-    start_date=datetime(2025, 1, 8),   # DAG start date
-    catchup=False,                     # Skip running for past dates
+    start_date=datetime(2025, 1, 8),   #DAG start date
+    catchup=False,                     #Skip running for past dates
     tags=["weather", "traffic", "ETL"],
 ) as dag:
     
