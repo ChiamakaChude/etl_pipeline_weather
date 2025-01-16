@@ -1,6 +1,5 @@
 weather_etl/config/config.py
 weather_etl/logs/weather_etl.log
 .env
-*.log
 __pycache__/
 *.pyc
